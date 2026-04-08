@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Termos de Uso & Privacidade — TerraSync</title>
+  <meta name="description" content="Termos de uso, política de privacidade e conformidade LGPD da plataforma TerraSync.">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="/assets/icon.png" type="image/x-icon">
+  <style>
+    .terms-body { background: var(--white); }
+    .terms-inner { display: grid; grid-template-columns: 240px 1fr; gap: 4rem; max-width: 1100px; margin: 0 auto; }
+
+    /* Sidebar índice */
+    .terms-sidebar { position: sticky; top: 6rem; align-self: start; }
+    .terms-sidebar-title { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--smoke); letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .terms-index { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .terms-index li a {
+      display: block; font-size: 0.83rem; color: var(--smoke); text-decoration: none;
+      padding: 0.45rem 0.75rem; border-left: 2px solid rgba(44,24,16,0.08);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .terms-index li a:hover, .terms-index li a.active { color: var(--leaf); border-color: var(--leaf); }
+
+    /* Conteúdo */
+    .terms-content { padding: 0; }
+    .terms-update { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--smoke); margin-bottom: 2.5rem; letter-spacing: 0.05em; }
+
+    .terms-block { margin-bottom: 3.5rem; scroll-margin-top: 7rem; }
+    .terms-block h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--soil); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(44,24,16,0.07); }
+    .terms-block h3 { font-size: 0.95rem; font-weight: 500; color: var(--soil); margin: 1.5rem 0 0.5rem; }
+    .terms-block p  { font-size: 0.9rem; color: var(--smoke); line-height: 1.8; margin-bottom: 0.75rem; }
+    .terms-block ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 0.75rem; }
+    .terms-block ul li { font-size: 0.88rem; color: var(--smoke); line-height: 1.6; display: flex; gap: 8px; }
+    .terms-block ul li::before { content: '▸'; color: var(--sprout); flex-shrink: 0; margin-top: 2px; }
+
+    .terms-highlight {
+      background: rgba(61,107,58,0.06); border-left: 3px solid var(--sprout);
+      border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 1rem 0;
+      font-size: 0.88rem; color: var(--ink); line-height: 1.7;
+    }
+
+    .terms-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(61,107,58,0.08); border: 1px solid rgba(61,107,58,0.2); border-radius: 6px; padding: 0.35rem 0.75rem; font-size: 0.78rem; color: var(--leaf); margin-bottom: 1rem; }
+
+    .cookie-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.83rem; }
+    .cookie-table th { background: var(--fog); font-weight: 500; color: var(--soil); padding: 0.6rem 0.75rem; text-align: left; border-bottom: 1px solid rgba(44,24,16,0.08); }
+    .cookie-table td { padding: 0.55rem 0.75rem; border-bottom: 1px solid rgba(44,24,16,0.05); color: var(--smoke); }
+    .cookie-table tr:last-child td { border-bottom: none; }
+
+    @media(max-width:900px){
+      .terms-inner { grid-template-columns: 1fr; gap: 0; }
+      .terms-sidebar { position: static; margin-bottom: 2rem; padding: 1.25rem; background: var(--fog); border-radius: 10px; }
+      .terms-body { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav injetado por components.js -->
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-breadcrumb">TERRASYNC → SUPORTE → TERMOS</div>
+    <h1>Termos de Uso &amp; <em>Privacidade</em></h1>
+    <p class="page-hero-sub">Transparência é um valor inegociável na TerraSync. Aqui você encontra tudo sobre como usamos seus dados, seus direitos e nossas responsabilidades.</p>
+  </div>
+</div>
+
+<!-- CONTEÚDO -->
+<section class="terms-body fade-section">
+  <div class="terms-inner">
+
+    <!-- SIDEBAR -->
+    <aside class="terms-sidebar">
+      <div class="terms-sidebar-title">ÍNDICE</div>
+      <ul class="terms-index">
+        <li><a href="#aceitacao">1. Aceitação dos termos</a></li>
+        <li><a href="#servicos">2. Descrição dos serviços</a></li>
+        <li><a href="#conta">3. Conta e acesso</a></li>
+        <li><a href="#dados">4. Dados da propriedade</a></li>
+        <li><a href="#privacidade">5. Política de privacidade</a></li>
+        <li><a href="#cookies">6. Cookies e rastreadores</a></li>
+        <li><a href="#lgpd">7. Seus direitos (LGPD)</a></li>
+        <li><a href="#ia">8. Uso da CuidoIA</a></li>
+        <li><a href="#responsabilidade">9. Limitação de responsabilidade</a></li>
+        <li><a href="#contato">10. Contato DPO</a></li>
+      </ul>
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <div class="terms-content">
+      <div class="terms-update">Última atualização: 15 de março de 2025 · Versão 3.1</div>
+      <div class="terms-badge">🔒 Conformidade LGPD · Lei 13.709/2018</div>
+
+      <div class="terms-block" id="aceitacao">
+        <h2>1. Aceitação dos termos</h2>
+        <p>Ao criar uma conta na plataforma TerraSync, acessar o GrowHub ou utilizar qualquer serviço do ecossistema TerraSync (incluindo o AgriFlow e a CuidoIA), você concorda com os presentes Termos de Uso e com nossa Política de Privacidade.</p>
+        <p>Estes termos constituem um contrato legalmente vinculante entre você (ou a empresa que representa) e a TerraSync Tecnologia Agrícola Ltda., inscrita no CNPJ 00.000.000/0001-00, com sede em Vilhena, Rondônia, Brasil.</p>
+        <div class="terms-highlight">Este documento é fictício, produzido para fins didáticos como parte de um projeto de design de produto. Nenhum dado real é coletado por esta plataforma demonstrativa.</div>
+      </div>
+
+      <div class="terms-block" id="servicos">
+        <h2>2. Descrição dos serviços</h2>
+        <p>A TerraSync oferece os seguintes produtos e funcionalidades:</p>
+        <ul>
+          <li><strong>GrowHub</strong> — Dashboard de monitoramento de propriedades rurais com mapa georreferenciado, análise de solo (pH, M.O., macronutrientes), classificação climática Köpper-Geiger e histórico de produtividade.</li>
+          <li><strong>AgriFlow</strong> — Motor de processamento de dados com pipeline de ingestão, limpeza, análise por IA e exportação de relatórios corporativos.</li>
+          <li><strong>CuidoIA</strong> — Sistema de inteligência artificial para geração de recomendações de manejo, alertas climáticos e previsões de produtividade.</li>
+        </ul>
+        <p>Os serviços são disponibilizados nos planos Raiz, Colheita e Safra, conforme descrito na página de Planos, sujeitos a alterações com aviso prévio de 30 dias.</p>
+      </div>
+
+      <div class="terms-block" id="conta">
+        <h2>3. Conta e acesso</h2>
+        <h3>3.1 Elegibilidade</h3>
+        <p>O uso da plataforma é destinado a pessoas físicas maiores de 18 anos ou pessoas jurídicas devidamente constituídas, que exerçam atividade rural, de tecnologia agrícola ou pesquisa relacionada.</p>
+        <h3>3.2 Segurança da conta</h3>
+        <ul>
+          <li>Você é responsável por manter a confidencialidade de suas credenciais de acesso.</li>
+          <li>A TerraSync utiliza autenticação de dois fatores (2FA) para todos os planos.</li>
+          <li>Em caso de acesso não autorizado, notifique imediatamente: seguranca@terrasync.com.br</li>
+        </ul>
+        <h3>3.3 Encerramento de conta</h3>
+        <p>Você pode solicitar o encerramento da conta a qualquer momento. Seus dados serão mantidos por 90 dias para fins de backup e então excluídos permanentemente, salvo obrigação legal.</p>
+      </div>
+
+      <div class="terms-block" id="dados">
+        <h2>4. Dados da propriedade</h2>
+        <p>Os dados inseridos na plataforma — incluindo coordenadas geográficas, resultados de análises de solo, registros de culturas e histórico de produtividade — são de sua exclusiva propriedade.</p>
+        <ul>
+          <li>A TerraSync não vende, aluga ou compartilha dados individuais de propriedades com terceiros.</li>
+          <li>Dados anonimizados e agregados podem ser utilizados para aprimoramento dos modelos da CuidoIA, desde que não seja possível identificar propriedades ou produtores individuais.</li>
+          <li>Parceiros de pesquisa (como EMBRAPA) recebem apenas datasets estatísticos, nunca dados individuais.</li>
+          <li>Você pode exportar todos os seus dados a qualquer momento em formato CSV ou PDF via painel.</li>
+        </ul>
+      </div>
+
+      <div class="terms-block" id="privacidade">
+        <h2>5. Política de privacidade</h2>
+        <h3>5.1 Dados coletados</h3>
+        <ul>
+          <li><strong>Dados de cadastro:</strong> Nome, e-mail, CPF/CNPJ, telefone, endereço da propriedade.</li>
+          <li><strong>Dados de uso:</strong> Logs de acesso, funcionalidades utilizadas, tempo de sessão.</li>
+          <li><strong>Dados da propriedade:</strong> Coordenadas GPS, análises de solo, culturas, histórico climático.</li>
+          <li><strong>Dados de dispositivo:</strong> Tipo de navegador, sistema operacional, endereço IP (anonimizado após 30 dias).</li>
+        </ul>
+        <h3>5.2 Finalidade do tratamento</h3>
+        <ul>
+          <li>Prestação dos serviços contratados (base legal: execução contratual).</li>
+          <li>Envio de relatórios, alertas e recomendações personalizadas.</li>
+          <li>Melhoria contínua dos algoritmos da CuidoIA (base legal: legítimo interesse, com anonimização).</li>
+          <li>Cumprimento de obrigações legais e regulatórias.</li>
+        </ul>
+        <h3>5.3 Armazenamento e segurança</h3>
+        <p>Todos os dados são armazenados em servidores localizados no Brasil (região South America / São Paulo), criptografados em trânsito (TLS 1.3) e em repouso (AES-256). Realizamos backups automáticos diários com retenção de 90 dias.</p>
+      </div>
+
+      <div class="terms-block" id="cookies">
+        <h2>6. Cookies e rastreadores</h2>
+        <p>A TerraSync utiliza os seguintes tipos de cookies:</p>
+        <table class="cookie-table">
+          <tr><th>Tipo</th><th>Finalidade</th><th>Expiração</th><th>Obrigatório</th></tr>
+          <tr><td>Essenciais</td><td>Autenticação, segurança, sessão do usuário</td><td>Sessão</td><td>Sim</td></tr>
+          <tr><td>Analíticos</td><td>Métricas de uso anonimizadas (sem terceiros)</td><td>12 meses</td><td>Não</td></tr>
+          <tr><td>Marketing</td><td>Comunicações personalizadas via e-mail</td><td>6 meses</td><td>Não</td></tr>
+          <tr><td>Localização</td><td>Clima e zona Köpper-Geiger automáticos</td><td>30 dias</td><td>Não</td></tr>
+        </table>
+        <p>Você pode gerenciar suas preferências de cookies a qualquer momento clicando em "Preferências de privacidade" no rodapé da plataforma.</p>
+      </div>
+
+      <div class="terms-block" id="lgpd">
+        <h2>7. Seus direitos pela LGPD</h2>
+        <p>De acordo com a Lei Geral de Proteção de Dados (Lei 13.709/2018), você tem direito a:</p>
+        <ul>
+          <li>Confirmar a existência de tratamento dos seus dados pessoais.</li>
+          <li>Acessar os dados que possuímos sobre você, em formato legível.</li>
+          <li>Corrigir dados incompletos, inexatos ou desatualizados.</li>
+          <li>Solicitar a anonimização, bloqueio ou eliminação de dados desnecessários.</li>
+          <li>Revogar o consentimento para finalidades específicas a qualquer momento.</li>
+          <li>Solicitar a portabilidade dos dados para outra plataforma.</li>
+          <li>Obter informações sobre os terceiros com quem compartilhamos dados.</li>
+        </ul>
+        <div class="terms-highlight">Para exercer qualquer um desses direitos, envie uma solicitação para: <strong>privacidade@terrasync.com.br</strong> — respondemos em até 15 dias úteis.</div>
+      </div>
+
+      <div class="terms-block" id="ia">
+        <h2>8. Uso da CuidoIA</h2>
+        <p>A CuidoIA é um sistema de inteligência artificial desenvolvido pela TerraSync para auxiliar na tomada de decisões agrícolas. É importante compreender:</p>
+        <ul>
+          <li>As recomendações da CuidoIA têm caráter <strong>sugestivo</strong> e não substituem o diagnóstico de engenheiro agrônomo habilitado.</li>
+          <li>O modelo foi treinado com dados do bioma brasileiro, mas condições locais específicas podem não estar refletidas.</li>
+          <li>A TerraSync não se responsabiliza por decisões de manejo tomadas exclusivamente com base nas recomendações da IA, sem validação profissional.</li>
+          <li>Erros e limitações do modelo são documentados publicamente em nossa página de transparência de IA.</li>
+        </ul>
+      </div>
+
+      <div class="terms-block" id="responsabilidade">
+        <h2>9. Limitação de responsabilidade</h2>
+        <p>A TerraSync se esforça para manter a plataforma disponível 24/7, mas não garante disponibilidade ininterrupta. O SLA de 99,9% de uptime aplica-se apenas ao plano Safra.</p>
+        <p>Em nenhuma hipótese a TerraSync será responsabilizada por danos indiretos, lucros cessantes ou perdas de produção decorrentes de indisponibilidade da plataforma, salvo em caso de dolo ou culpa grave comprovada.</p>
+      </div>
+
+      <div class="terms-block" id="contato">
+        <h2>10. Contato — Encarregado de Dados (DPO)</h2>
+        <p>Nossa Encarregada de Dados (Data Protection Officer) é responsável por garantir o cumprimento da LGPD e atender solicitações relacionadas à privacidade:</p>
+        <ul>
+          <li><strong>Nome:</strong> Ana Clara Viana</li>
+          <li><strong>E-mail:</strong> dpo@terrasync.com.br</li>
+          <li><strong>Telefone:</strong> (69) 3000-0000</li>
+          <li><strong>Endereço:</strong> Rua das Palmeiras, 247 — Vilhena, RO — CEP 76.980-000</li>
+          <li><strong>Horário:</strong> Segunda a sexta, das 8h às 17h (horário de Brasília)</li>
+        </ul>
+        <div class="terms-highlight">Você também pode registrar reclamações diretamente na ANPD (Autoridade Nacional de Proteção de Dados): www.gov.br/anpd</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer injetado por components.js -->
+
+<script src="../js/components.js"></script>
+<script>injectNav('pages'); injectFooter('pages');</script>
+<script src="../js/main.js"></script>
+<script>
+  /* Marca item ativo no índice conforme scroll */
+  const blocks = document.querySelectorAll('.terms-block');
+  const links  = document.querySelectorAll('.terms-index a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    blocks.forEach(b => { if (window.scrollY >= b.offsetTop - 120) current = b.id; });
+    links.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+</script>
+</body>
+</html>

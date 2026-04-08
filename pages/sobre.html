@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre a TerraSync — Tecnologia que Nasce do Solo</title>
+  <meta name="description" content="Conheça a história, missão e time por trás da TerraSync, software de gestão para propriedades rurais brasileiras.">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="/assets/icon.png" sizes="64x64" type="image/svg+xml">
+  <style>
+    /* ── Sobre: estilos específicos ── */
+    .about-intro { background: var(--fog); }
+    .about-intro-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+
+    .about-numbers { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; margin-top: 2.5rem; }
+    .about-num-card { background: var(--white); border-radius: 12px; padding: 1.25rem 1.5rem; border: 1px solid rgba(44,24,16,0.07); }
+    .about-num-v { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--leaf); }
+    .about-num-l { font-size: 0.82rem; color: var(--smoke); margin-top: 3px; }
+
+    /* timeline */
+    .timeline-section { background: var(--white); }
+    .timeline { position: relative; max-width: 760px; margin: 3rem auto 0; }
+    .timeline::before { content:''; position:absolute; left:16px; top:0; bottom:0; width:2px; background: rgba(44,24,16,0.08); }
+    .tl-item { display: flex; gap: 2rem; margin-bottom: 2.5rem; position: relative; }
+    .tl-dot { width: 34px; height: 34px; border-radius: 50%; background: var(--leaf); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: var(--white); position: relative; z-index: 1; }
+    .tl-dot.future { background: var(--fog); border: 2px solid rgba(44,24,16,0.12); color: var(--smoke); }
+    .tl-body { padding-top: 4px; }
+    .tl-year { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--sprout); letter-spacing: 0.08em; margin-bottom: 0.35rem; }
+    .tl-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--soil); margin-bottom: 0.4rem; }
+    .tl-desc { font-size: 0.88rem; color: var(--smoke); line-height: 1.65; }
+
+    /* valores */
+    .valores-section { background: var(--soil); }
+    .valores-section .section-title { color: var(--white); }
+    .valores-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1.25rem; margin-top: 3rem; }
+    .valor-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.75rem; transition: border-color 0.25s; }
+    .valor-card:hover { border-color: rgba(107,175,94,0.4); }
+    .valor-icon { font-size: 1.6rem; margin-bottom: 1rem; }
+    .valor-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--white); margin-bottom: 0.5rem; }
+    .valor-desc { font-size: 0.83rem; color: rgba(255,255,255,0.45); line-height: 1.65; }
+
+    /* time */
+    .time-section { background: var(--fog); }
+    .time-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .time-card { background: var(--white); border-radius: 14px; overflow: hidden; border: 1px solid rgba(44,24,16,0.07); transition: transform 0.2s; }
+    .time-card:hover { transform: translateY(-3px); }
+    .time-avatar { height: 110px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+    .time-body { padding: 1rem 1.25rem 1.25rem; }
+    .time-name { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--soil); margin-bottom: 2px; }
+    .time-role { font-size: 0.78rem; color: var(--sprout); font-family: 'DM Mono', monospace; margin-bottom: 0.5rem; }
+    .time-bio  { font-size: 0.8rem; color: var(--smoke); line-height: 1.55; }
+
+    /* CTA */
+    .about-cta { background: var(--earth); padding: 5rem 4rem; text-align: center; }
+    .about-cta h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--white); margin-bottom: 1rem; }
+    .about-cta p  { font-size: 1rem; color: rgba(255,255,255,0.5); max-width: 520px; margin: 0 auto 2rem; line-height: 1.75; }
+    .about-cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    @media(max-width:900px){
+      .about-intro-inner { grid-template-columns:1fr; gap:2.5rem; }
+      .about-cta { padding: 4rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav injetado por components.js -->
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-breadcrumb">TERRASYNC → SOBRE</div>
+    <h1>Da roça para o <em>código</em></h1>
+    <p class="page-hero-sub">Nascemos em Rondônia com uma missão clara: levar tecnologia de verdade para quem produz o alimento do Brasil.</p>
+  </div>
+</div>
+
+<!-- INTRODUÇÃO -->
+<section class="about-intro fade-section">
+  <div class="about-intro-inner">
+    <div>
+      <span class="section-label">Nossa história</span>
+      <h2 class="section-title">Tecnologia com raízes no campo</h2>
+      <p class="section-sub" style="margin-bottom:1.25rem;">A TerraSync nasceu em 2021, em Vilhena (RO), quando um engenheiro agrônomo e um desenvolvedor decidiram unir forças para resolver um problema que vivenciavam de perto: produtores rurais afogados em planilhas, sem acesso a dados confiáveis e sem ferramentas adequadas para o tamanho do seu negócio.</p>
+      <p class="section-sub">Nossa plataforma foi construída do zero com base em entrevistas com mais de 200 produtores rurais em 7 estados, garantindo que cada funcionalidade resolva um problema real do campo — não um problema inventado num escritório de São Paulo.</p>
+    </div>
+    <div>
+      <div style="background:var(--soil);border-radius:16px;padding:2rem;color:var(--white);">
+        <div style="font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--sprout);margin-bottom:1.25rem;letter-spacing:0.08em;">TERRASYNC · RESUMO</div>
+        <p style="font-size:0.88rem;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:1.5rem;">Uma empresa de tecnologia agrícola 100% brasileira, com foco em pequenas e médias propriedades rurais — o segmento mais importante e menos atendido do agronegócio nacional.</p>
+        <div style="border-top:1px solid rgba(255,255,255,0.07);padding-top:1.25rem;">
+          <div style="font-family:'DM Mono',monospace;font-size:0.68rem;color:rgba(255,255,255,0.3);margin-bottom:0.75rem;">INFORMAÇÕES</div>
+          <div style="font-size:0.83rem;color:rgba(255,255,255,0.5);display:flex;flex-direction:column;gap:0.5rem;">
+            <div><span style="color:rgba(255,255,255,0.25);margin-right:8px;">Fundação</span>2021, Vilhena — RO</div>
+            <div><span style="color:rgba(255,255,255,0.25);margin-right:8px;">Setor</span>AgTech · SaaS Rural</div>
+            <div><span style="color:rgba(255,255,255,0.25);margin-right:8px;">CNPJ</span>00.000.000/0001-00 (fictício)</div>
+            <div><span style="color:rgba(255,255,255,0.25);margin-right:8px;">Cobertura</span>12 estados brasileiros</div>
+            <div><span style="color:rgba(255,255,255,0.25);margin-right:8px;">Certificação</span>LGPD compliant</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-numbers">
+        <div class="about-num-card"><div class="about-num-v">3.8k</div><div class="about-num-l">Propriedades ativas</div></div>
+        <div class="about-num-card"><div class="about-num-v">12</div><div class="about-num-l">Estados cobertos</div></div>
+        <div class="about-num-card"><div class="about-num-v">98%</div><div class="about-num-l">Satisfação dos clientes</div></div>
+        <div class="about-num-card"><div class="about-num-v">47</div><div class="about-num-l">Colaboradores</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LINHA DO TEMPO -->
+<section class="timeline-section fade-section">
+  <span class="section-label">Trajetória</span>
+  <h2 class="section-title">Como chegamos até aqui</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot">🌱</div>
+      <div class="tl-body">
+        <div class="tl-year">2021 · ANO 1</div>
+        <div class="tl-title">Fundação e primeiras entrevistas</div>
+        <div class="tl-desc">Bruno Lacerda (agrônomo) e Rafael Mendes (dev) fundam a TerraSync em Vilhena. Realizam 200+ entrevistas com produtores em RO, MT e MS para mapear dores reais do campo.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">🚀</div>
+      <div class="tl-body">
+        <div class="tl-year">2022 · ANO 2</div>
+        <div class="tl-title">Lançamento do GrowHub Beta</div>
+        <div class="tl-desc">Primeira versão do GrowHub disponibilizada para 30 produtores piloto no Mato Grosso. Dashboard com mapa de talhões, pH e clima já funcionais.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">🤖</div>
+      <div class="tl-body">
+        <div class="tl-year">2023 · ANO 3</div>
+        <div class="tl-title">Nasce a CuidoIA e o AgriFlow</div>
+        <div class="tl-desc">Parceria com pesquisadores da EMBRAPA para treinar os primeiros modelos de ML aplicados ao solo brasileiro. AgriFlow entra em beta com análise preditiva de produtividade.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">📈</div>
+      <div class="tl-body">
+        <div class="tl-year">2024 · ANO 4</div>
+        <div class="tl-title">Expansão nacional e Série A</div>
+        <div class="tl-desc">TerraSync chega a 12 estados, ultrapassa 3.000 propriedades ativas e fecha rodada Série A de R$ 18M para expansão da equipe e infraestrutura de dados.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot future">→</div>
+      <div class="tl-body">
+        <div class="tl-year">2025 · PRÓXIMOS PASSOS</div>
+        <div class="tl-title">App mobile e integração com satélites</div>
+        <div class="tl-desc">Em desenvolvimento: app Android/iOS para o campo, integração com imagens de satélite Sentinel-2 para análise NDVI e módulo de crédito rural baseado em dados da plataforma.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section class="valores-section fade-section">
+  <span class="section-label" style="color:var(--sprout);">Cultura</span>
+  <h2 class="section-title">O que nos guia</h2>
+  <div class="valores-grid">
+    <div class="valor-card"><div class="valor-icon">🌱</div><div class="valor-name">Raízes no campo</div><div class="valor-desc">Toda decisão de produto começa com uma visita a uma propriedade real. Não construímos o que achamos que o produtor quer — construímos o que ele precisa.</div></div>
+    <div class="valor-card"><div class="valor-icon">🔬</div><div class="valor-name">Dados com ciência</div><div class="valor-desc">Nossas análises são baseadas em metodologias científicas reconhecidas: Köpper-Geiger, EMBRAPA, FAO. CuidoIA só recomenda o que a ciência valida.</div></div>
+    <div class="valor-card"><div class="valor-icon">🤝</div><div class="valor-name">Produtor no centro</div><div class="valor-desc">Nosso sucesso é medido pelo sucesso do produtor. Métricas internas incluem produtividade dos clientes, não apenas receita própria.</div></div>
+    <div class="valor-card"><div class="valor-icon">🔒</div><div class="valor-name">Privacidade sem negociação</div><div class="valor-desc">Dados da sua propriedade são seus. Nunca vendemos, alugamos ou compartilhamos informações com terceiros sem consentimento explícito.</div></div>
+  </div>
+</section>
+
+<!-- TIME -->
+<section class="time-section fade-section">
+  <span class="section-label">Equipe</span>
+  <h2 class="section-title">As pessoas por trás da TerraSync</h2>
+  <p class="section-sub">Um time multidisciplinar que une agronômia, tecnologia e design para construir o futuro da gestão rural brasileira.</p>
+  <div class="time-grid">
+    <div class="time-card">
+      <div class="time-avatar" style="background:rgba(61,107,58,0.08);">👨‍🌾</div>
+      <div class="time-body">
+        <div class="time-name">Bruno Lacerda</div>
+        <div class="time-role">CEO & Co-fundador</div>
+        <div class="time-bio">Eng. Agrônomo pela UFMT. 12 anos de consultoria em solos tropicais brasileiros antes de fundar a TerraSync.</div>
+      </div>
+    </div>
+    <div class="time-card">
+      <div class="time-avatar" style="background:rgba(91,155,213,0.08);">👨‍💻</div>
+      <div class="time-body">
+        <div class="time-name">Rafael Mendes</div>
+        <div class="time-role">CTO & Co-fundador</div>
+        <div class="time-bio">Dev full-stack com passagem por startups de AgTech no Vale do Silício. Criador da arquitetura do AgriFlow e da CuidoIA.</div>
+      </div>
+    </div>
+    <div class="time-card">
+      <div class="time-avatar" style="background:rgba(200,164,90,0.1);">👩‍🔬</div>
+      <div class="time-body">
+        <div class="time-name">Dra. Camila Torres</div>
+        <div class="time-role">Head de Ciência de Dados</div>
+        <div class="time-bio">Doutora em Ciência do Solo pela ESALQ/USP. Responsável pelo treinamento dos modelos de ML da CuidoIA com dados EMBRAPA.</div>
+      </div>
+    </div>
+    <div class="time-card">
+      <div class="time-avatar" style="background:rgba(107,175,94,0.1);">👩‍💼</div>
+      <div class="time-body">
+        <div class="time-name">Patrícia Souza</div>
+        <div class="time-role">Head de Produto</div>
+        <div class="time-bio">Designer de produto com experiência em SaaS B2B. Conduz a pesquisa com usuários que orienta cada novo recurso do GrowHub.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="about-cta fade-section">
+  <h2>Faça parte da TerraSync</h2>
+  <p>Somos uma empresa em crescimento acelerado. Se você quer trabalhar com tecnologia que transforma o campo brasileiro, venha para o nosso time.</p>
+  <div class="about-cta-actions">
+    <a href="trabalhe.html" class="btn-primary">Ver vagas abertas →</a>
+    <a href="../index.html#acesso" class="btn-outline">Conhecer a plataforma</a>
+  </div>
+</div>
+
+<!-- Footer injetado por components.js -->
+
+<script src="../js/components.js"></script>
+<script>injectNav('pages'); injectFooter('pages');</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

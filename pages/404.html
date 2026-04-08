@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Página não encontrada · TerraSync</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="/assets/icon.png" type="image/x-icon">
+  <style>
+    body { background: var(--soil); min-height: 100vh; display: flex; flex-direction: column; }
+
+    .error-main {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      padding: 8rem 2rem 4rem; position: relative; overflow: hidden;
+    }
+
+    .error-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 30% 40%, rgba(61,107,58,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 80% 70%, rgba(200,164,90,0.08) 0%, transparent 50%);
+    }
+    .error-grid {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: linear-gradient(var(--mist) 1px, transparent 1px),
+                        linear-gradient(90deg, var(--mist) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    .error-content {
+      position: relative; text-align: center; max-width: 600px;
+      animation: fadeUp 0.8s ease both;
+    }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+    .error-code {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(6rem, 18vw, 12rem);
+      font-weight: 700; line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(107,175,94,0.3);
+      letter-spacing: -0.02em;
+      margin-bottom: -1rem;
+    }
+
+    .error-illustration {
+      font-size: 4rem; margin-bottom: 1rem;
+      animation: sway 3s ease-in-out infinite;
+    }
+    @keyframes sway { 0%,100%{transform:rotate(-3deg)} 50%{transform:rotate(3deg)} }
+
+    .error-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      color: var(--white); margin-bottom: 1rem; font-weight: 700;
+    }
+    .error-title em { font-style: normal; color: var(--harvest); }
+
+    .error-desc {
+      font-size: 0.95rem; color: rgba(255,255,255,0.5);
+      line-height: 1.75; margin-bottom: 2.5rem;
+    }
+
+    .error-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+
+    .error-links {
+      border-top: 1px solid rgba(255,255,255,0.07); padding-top: 2rem;
+    }
+    .error-links-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: rgba(255,255,255,0.25); letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .error-links-grid { display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; }
+    .error-link { font-size: 0.85rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+    .error-link:hover { color: var(--sprout); }
+
+    /* contador regressivo */
+    .redirect-notice {
+      margin-top: 2rem; font-size: 0.78rem; color: rgba(255,255,255,0.25);
+      font-family: 'DM Mono', monospace;
+    }
+    .redirect-notice span { color: var(--sprout); }
+
+    footer { border-top: 1px solid rgba(255,255,255,0.04); }
+  </style>
+</head>
+<body>
+
+<!-- Nav injetado por components.js -->
+
+<main class="error-main">
+  <div class="error-bg"></div>
+  <div class="error-grid"></div>
+  <div class="error-content">
+    <div class="error-code">404</div>
+    <div class="error-illustration">🌾</div>
+    <h1 class="error-title">Esta página foi <em>colhida</em> cedo demais</h1>
+    <p class="error-desc">
+      O talhão que você tentou acessar não existe ou foi movido para outra área da plataforma.
+      Pode ter sido um link antigo, um endereço digitado errado, ou uma funcionalidade ainda em desenvolvimento.
+    </p>
+    <div class="error-actions">
+      <a href="../index.html" class="btn-primary">← Voltar para o início</a>
+      <a href="../index.html#acesso" class="btn-outline">Acessar GrowHub</a>
+    </div>
+    <div class="error-links">
+      <div class="error-links-label">PÁGINAS DISPONÍVEIS</div>
+      <div class="error-links-grid">
+        <a href="../index.html#produtos"  class="error-link">🌾 Produtos</a>
+        <a href="../index.html#growhub"   class="error-link">📍 GrowHub</a>
+        <a href="../index.html#planos"    class="error-link">💳 Planos</a>
+        <a href="../index.html#agriflow"  class="error-link">🤖 AgriFlow</a>
+        <a href="sobre.html"              class="error-link">🏢 Sobre</a>
+        <a href="trabalhe.html"           class="error-link">💼 Vagas</a>
+        <a href="termos.html"             class="error-link">🔒 Termos</a>
+      </div>
+    </div>
+    <div class="redirect-notice">
+      Redirecionando para o início em <span id="countdown">10</span> segundos…
+    </div>
+  </div>
+</main>
+
+<!-- Footer injetado por components.js -->
+
+<script src="../js/components.js"></script>
+<script>injectNav('pages'); injectFooter('pages');</script>
+<script src="../js/main.js"></script>
+<script>
+  let count = 10;
+  const el = document.getElementById('countdown');
+  const timer = setInterval(() => {
+    count--;
+    if (el) el.textContent = count;
+    if (count <= 0) { clearInterval(timer); window.location.href = '../index.html'; }
+  }, 1000);
+</script>
+</body>
+</html>
