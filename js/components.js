@@ -11,7 +11,10 @@ function injectNav(depth = 'root') {
     <a href="${base}index.html" class="nav-logo">
       <div class="logo-mark">
         <div class="logo-mark" style="width: 24px; height: 24px;">
-      <img src="/assets/icon.png" alt="Logo" style="width: 100%; height: 100%; object-fit: contain;">
+      <img src="https://raw.githubusercontent.com/felipe-schmitz/GrowHub---Dashboard/main/assets/icon.png"
+             alt="TerraSync Logo"
+             style="width:100%;height:100%;object-fit:contain;"
+             onerror="this.style.display='none';this.parentElement.innerHTML='<svg viewBox=\'0 0 24 24\' style=\'width:18px;height:18px;fill:#FDFEF9\'><path d=\'M17 8C8 10 5.9 16.17 3.82 19.83L5.71 21 7 18.5c.49.27.98.52 1.47.74C11.57 20.74 14.89 21 17 21c2 0 5-1 7-5-3 0-5.5-1-6.5-3.5C19 11 20 9 22 8c-2 1-3.5.5-5 0z\'/></svg>';">
       </div>
       </div>
       Terra<span>Sync</span>
@@ -36,7 +39,7 @@ function injectFooter(depth = 'root') {
       <div class="footer-brand">
         <a href="${base}index.html" class="nav-logo" style="color:var(--white);">
           <div class="logo-mark">
-            <img src="/assets/icon.png" alt="Logo" style="width: 100%; height: 100%; object-fit: contain;">
+            <img src="https://raw.githubusercontent.com/felipe-schmitz/GrowHub---Dashboard/main/assets/icon.png" alt="Logo" style="width: 100%; height: 100%; object-fit: contain;">
           </div>
           Terra<span style="color:var(--sprout);">Sync</span>
         </a>
