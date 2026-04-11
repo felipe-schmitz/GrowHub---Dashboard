@@ -41,7 +41,7 @@
     .vaga-card:hover { box-shadow: 0 8px 24px rgba(44,24,16,0.08); transform: translateY(-2px); }
     .vaga-dept { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
     .vaga-info { flex: 1; }
-    .vaga-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--soil); margin-bottom: 4px; }
+    .vaga-title { font-size: 1.05rem; font-weight: 600; color: var(--soil); margin-bottom: 4px; }
     .vaga-tags  { display: flex; gap: 0.5rem; flex-wrap: wrap; }
     .vaga-tag   { font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; font-family: 'DM Mono', monospace; }
     .tag-local  { background: rgba(61,107,58,0.08); color: var(--leaf); }
@@ -52,14 +52,109 @@
     .vagas-empty { text-align: center; padding: 3rem; color: var(--smoke); font-size: 0.9rem; display: none; }
 
     /* candidatura espontânea */
-    .espontanea { background: var(--soil); padding: 5rem 4rem; text-align: center; }
-    .espontanea h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--white); margin-bottom: 1rem; }
-    .espontanea p  { font-size: 0.95rem; color: rgba(255,255,255,0.5); max-width: 500px; margin: 0 auto 2rem; line-height: 1.75; }
-    .form-esp { max-width: 480px; margin: 0 auto; text-align: left; }
+    .espontanea {
+      background: var(--soil);
+      padding: 6rem 4rem;
+      position: relative; overflow: hidden;
+    }
+    .espontanea-bg {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 55% 60% at 90% 50%, rgba(61,107,58,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 35% 40% at 5% 80%,  rgba(200,164,90,0.1) 0%, transparent 55%);
+    }
+    .espontanea-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 5rem;
+      max-width: 980px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .espontanea-info { padding-top: 0.5rem; }
+    .espontanea-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: var(--white); margin-bottom: 1rem; line-height: 1.2;
+    }
+    .espontanea-info h2 em { font-style: normal; color: var(--harvest); }
+    .espontanea-info p {
+      font-size: 0.92rem; color: rgba(255,255,255,0.45);
+      line-height: 1.8; margin-bottom: 2rem;
+    }
+    .espontanea-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+    .espontanea-bullets li {
+      font-size: 0.85rem; color: rgba(255,255,255,0.45);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .espontanea-bullets li svg { width: 14px; height: 14px; fill: var(--sprout); flex-shrink: 0; }
+
+    /* card do formulário */
+    .form-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 2.25rem 2rem;
+    }
+    .form-card-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; color: var(--sprout);
+      letter-spacing: 0.12em; margin-bottom: 1.75rem;
+    }
+    .esp-group { margin-bottom: 1.1rem; }
+    .esp-label {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.75rem; font-weight: 500;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.04em; margin-bottom: 0.45rem;
+    }
+    .esp-label svg { width: 12px; height: 12px; fill: var(--sprout); }
+    .esp-input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      color: var(--white);
+      font-size: 0.88rem;
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      -webkit-appearance: none;
+    }
+    .esp-input:focus {
+      border-color: var(--sprout);
+      background: rgba(107,175,94,0.06);
+    }
+    .esp-input::placeholder { color: rgba(255,255,255,0.2); }
+    select.esp-input { cursor: pointer; }
+    select.esp-input option { background: var(--earth); color: var(--white); font-size: 0.88rem; }
+    textarea.esp-input { resize: vertical; min-height: 110px; line-height: 1.6; }
+    .esp-btn {
+      width: 100%; margin-top: 0.5rem;
+      background: var(--leaf); color: var(--white);
+      border: none; border-radius: 10px;
+      padding: 0.9rem 1.5rem;
+      font-size: 0.92rem; font-weight: 500;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .esp-btn:hover:not(:disabled) { background: var(--sprout); transform: translateY(-1px); }
+    .esp-btn:disabled { opacity: 0.7; cursor: default; }
+    .esp-btn svg { width: 16px; height: 16px; fill: var(--white); }
+    .esp-note {
+      text-align: center; margin-top: 1rem;
+      font-size: 0.72rem; color: rgba(255,255,255,0.2);
+      font-family: 'DM Mono', monospace; letter-spacing: 0.04em;
+    }
 
     @media(max-width:900px){
       .vaga-card { flex-wrap: wrap; }
       .espontanea { padding: 4rem 1.5rem; }
+      .espontanea-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     }
   </style>
 </head>
@@ -261,26 +356,87 @@
 
 <!-- CANDIDATURA ESPONTÂNEA -->
 <div class="espontanea fade-section">
-  <h2>Não encontrou sua vaga?</h2>
-  <p>Mande seu currículo assim mesmo. Guardamos candidaturas por 6 meses e entramos em contato quando surgir a oportunidade certa.</p>
-  <div class="form-esp">
-    <div class="form-group"><label class="form-label">Nome completo</label><input type="text" class="form-input" placeholder="Seu nome"></div>
-    <div class="form-group"><label class="form-label">E-mail</label><input type="email" class="form-input" placeholder="seu@email.com"></div>
-    <div class="form-group"><label class="form-label">Área de interesse</label>
-      <select class="form-input" style="cursor:pointer;">
-        <option value="">Selecione uma área</option>
-        <option>Tecnologia / Engenharia</option>
-        <option>Dados & Inteligência Artificial</option>
-        <option>Agronomia / Ciência do Solo</option>
-        <option>Design de Produto</option>
-        <option>Vendas & Negócios</option>
-        <option>Marketing & Conteúdo</option>
-        <option>Outra</option>
-      </select>
+  <div class="espontanea-bg"></div>
+  <div class="espontanea-inner">
+
+    <!-- lado esquerdo: texto -->
+    <div class="espontanea-info">
+      <span class="section-label" style="color:var(--sprout);">Candidatura espontânea</span>
+      <h2>Não encontrou sua <em>vaga?</em></h2>
+      <p>Mande seu currículo assim mesmo. Guardamos candidaturas por 6 meses e entramos em contato quando surgir a oportunidade certa para o seu perfil.</p>
+      <ul class="espontanea-bullets">
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+          Resposta em até 5 dias úteis
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+          Candidatura mantida por 6 meses
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+          Time de RH 100% humano, sem triagem automática
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+          Fins didáticos — nenhum dado é armazenado
+        </li>
+      </ul>
     </div>
-    <div class="form-group"><label class="form-label">Conte um pouco sobre você</label><textarea class="form-input" rows="4" placeholder="O que te anima a trabalhar com tecnologia rural?" style="resize:vertical;"></textarea></div>
-    <button class="form-btn" id="esp-btn">Enviar candidatura espontânea →</button>
-    <div class="form-note">Fins didáticos — nenhum dado é enviado ou armazenado.</div>
+
+    <!-- lado direito: formulário -->
+    <div class="form-card">
+      <div class="form-card-title">CANDIDATURA ESPONTÂNEA · TERRASYNC</div>
+
+      <div class="esp-group">
+        <label class="esp-label">
+          <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+          Nome completo
+        </label>
+        <input type="text" class="esp-input" placeholder="Seu nome completo">
+      </div>
+
+      <div class="esp-group">
+        <label class="esp-label">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          E-mail
+        </label>
+        <input type="email" class="esp-input" id="esp-email" placeholder="seu@email.com">
+        <span id="esp-email-msg" style="display:none;font-size:0.72rem;margin-top:5px;padding:3px 8px;border-radius:5px;"></span>
+      </div>
+
+      <div class="esp-group">
+        <label class="esp-label">
+          <svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.36C18 2.98 15.8 1 13 1c-1.7 0-3.16.87-4 2.17C8.16 1.87 6.7 1 5 1 2.2 1 0 2.98 0 5.28c0 3.43 4.35 6.29 10 10.72C15.65 11.57 20 8.71 20 5.28c0 .48.11.92.18 1.36H20z"/></svg>
+          Área de interesse
+        </label>
+        <select class="esp-input" id="esp-area">
+          <option value="">Selecione uma área</option>
+          <option>Tecnologia / Engenharia</option>
+          <option>Dados & Inteligência Artificial</option>
+          <option>Agronomia / Ciência do Solo</option>
+          <option>Design de Produto</option>
+          <option>Vendas & Negócios</option>
+          <option>Marketing & Conteúdo</option>
+          <option>Outra</option>
+        </select>
+      </div>
+
+      <div class="esp-group">
+        <label class="esp-label">
+          <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+          Conte um pouco sobre você
+        </label>
+        <textarea class="esp-input" rows="4" placeholder="O que te anima a trabalhar com tecnologia rural? Qual sua experiência e o que busca?"></textarea>
+      </div>
+
+      <button class="esp-btn" id="esp-btn">
+        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        Enviar candidatura
+      </button>
+      <div class="esp-note">fins didáticos · nenhum dado é enviado ou armazenado</div>
+    </div>
+
   </div>
 </div>
 
@@ -310,17 +466,53 @@
     });
   });
 
-  /* Candidatura fictícia */
+  /* Candidatura fictícia com validação de e-mail */
+  const espEmail    = document.getElementById('esp-email');
+  const espEmailMsg = document.getElementById('esp-email-msg');
+  const EMAIL_RE    = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function setEmailMsg(valid, msg) {
+    espEmailMsg.style.display    = 'block';
+    espEmailMsg.textContent      = msg;
+    espEmailMsg.style.color      = valid ? '#6BAF5E' : '#E06060';
+    espEmailMsg.style.background = valid ? 'rgba(107,175,94,0.1)' : 'rgba(224,96,96,0.1)';
+    espEmail.style.borderColor   = valid ? 'var(--sprout)' : '#E06060';
+  }
+
+  if (espEmail) {
+    let debounce;
+    espEmail.addEventListener('input', () => {
+      clearTimeout(debounce);
+      const v = espEmail.value.trim();
+      if (!v) { espEmailMsg.style.display='none'; espEmail.style.borderColor=''; return; }
+      debounce = setTimeout(() => {
+        EMAIL_RE.test(v) ? setEmailMsg(true,'✓ Formato válido') : setEmailMsg(false,'✗ formato: nome@dominio.com');
+      }, 500);
+    });
+    espEmail.addEventListener('blur', () => {
+      const v = espEmail.value.trim();
+      if (v) EMAIL_RE.test(v) ? setEmailMsg(true,'✓ Formato válido') : setEmailMsg(false,'✗ formato: nome@dominio.com');
+    });
+  }
+
   document.getElementById('esp-btn').addEventListener('click', () => {
     const btn = document.getElementById('esp-btn');
-    btn.textContent = 'Enviando…';
+    if (espEmail && espEmail.value.trim() && !EMAIL_RE.test(espEmail.value.trim())) {
+      setEmailMsg(false, '✗ Corrija o e-mail antes de enviar');
+      espEmail.focus(); return;
+    }
+    btn.innerHTML = '<svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:white;animation:spin 1s linear infinite"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg> Enviando…';
     btn.style.background = 'var(--clay)';
     btn.disabled = true;
     setTimeout(() => {
-      btn.textContent = '✓ Candidatura registrada — fins didáticos';
+      btn.innerHTML = '<svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:white"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> Candidatura registrada!';
       btn.style.background = 'var(--leaf)';
     }, 1800);
   });
+
+  const styleEl = document.createElement('style');
+  styleEl.textContent = '@keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }';
+  document.head.appendChild(styleEl);
 </script>
 </body>
 </html>

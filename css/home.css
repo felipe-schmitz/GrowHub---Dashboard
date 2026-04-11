@@ -89,7 +89,7 @@
 .icon-green { background: rgba(61,107,58,0.1); }
 .icon-earth { background: rgba(200,164,90,0.15); }
 
-.product-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--soil); margin-bottom: 0.35rem; }
+.product-name { font-size: 1.5rem; font-weight: 700; color: var(--soil); margin-bottom: 0.35rem; }
 .product-tagline { font-size: 0.85rem; color: var(--sprout); font-family: 'DM Mono', monospace; }
 
 .product-card-body { padding: 1.5rem 2rem 2rem; }
@@ -207,7 +207,7 @@
 }
 .login-inner { width: 100%; max-width: 900px; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .login-box { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 3rem; }
-.login-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--white); margin-bottom: 0.3rem; }
+.login-logo { font-size: 1.3rem; font-weight: 600; color: var(--white); margin-bottom: 0.3rem; }
 .login-logo span { color: var(--sprout); }
 .login-sub  { font-size: 0.82rem; color: var(--smoke); margin-bottom: 2rem; }
 
