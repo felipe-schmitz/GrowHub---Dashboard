@@ -42,7 +42,7 @@
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
 .hero h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 700; line-height: 1.1;
   color: var(--white); margin-bottom: 1.5rem;
@@ -60,7 +60,7 @@
   animation: fadeUp 0.9s 0.3s ease both;
 }
 .stat { text-align: right; }
-.stat-n { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--harvest); }
+.stat-n { font-size: 2.2rem; font-weight: 700; color: var(--harvest); }
 .stat-l { font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
 
 /* ── Produtos ── */
@@ -160,12 +160,12 @@
   font-size: 0.7rem; font-weight: 500; padding: 3px 14px; border-radius: 99px; white-space: nowrap;
 }
 .plan-tier   { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--smoke); letter-spacing: 0.1em; margin-bottom: 0.75rem; }
-.plan-name   { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--white); margin-bottom: 0.5rem; }
+.plan-name   { font-size: 1.6rem; color: var(--white); margin-bottom: 0.5rem; }
 .plan-target { font-size: 0.82rem; color: var(--smoke); margin-bottom: 1.5rem; line-height: 1.5; }
 
 .plan-price  { display: flex; align-items: baseline; gap: 4px; margin-bottom: 1.75rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
 .plan-currency { font-size: 1rem; color: var(--harvest); }
-.plan-amount   { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--white); }
+.plan-amount   { font-size: 2.4rem; color: var(--white); }
 .plan-period   { font-size: 0.8rem; color: var(--smoke); }
 
 .plan-metrics       { margin-bottom: 1.5rem; }
