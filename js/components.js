@@ -20,8 +20,22 @@ function injectNav(depth = 'root') {
       <li><a href="${base}index.html#planos">Planos</a></li>
       <li><a href="${base}index.html#agriflow">AgriFlow</a></li>
       <li><a href="${base}pages/sobre.html">Sobre</a></li>
-      <li><a href="${base}index.html#acesso" class="nav-cta">Acessar</a></li>
+      <li class="nav-cta-item"><a href="${base}index.html#acesso" class="nav-cta">Acessar</a></li>
+      <li class="nav-profile-item">
+        <a href="${base}pages/404.html" class="nav-profile" aria-label="Abrir perfil">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 12c2.4 0 4.2-1.8 4.2-4.2S14.4 3.6 12 3.6 7.8 5.4 7.8 7.8 9.6 12 12 12z"/>
+            <path d="M4.8 20.4c.7-3.4 3.5-5.4 7.2-5.4s6.5 2 7.2 5.4"/>
+          </svg>
+          <span>Perfil</span>
+        </a>
+      </li>
     </ul>
+    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   `;
   document.body.insertBefore(nav, document.body.firstChild);
 }

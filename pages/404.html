@@ -21,10 +21,12 @@
         radial-gradient(ellipse 40% 40% at 80% 70%, rgba(200,164,90,0.08) 0%, transparent 50%);
     }
     .error-grid {
-      position: absolute; inset: 0; opacity: 0.04;
-      background-image: linear-gradient(var(--mist) 1px, transparent 1px),
-                        linear-gradient(90deg, var(--mist) 1px, transparent 1px);
-      background-size: 48px 48px;
+      position: absolute; inset: 0; opacity: 0.2;
+      background:
+        linear-gradient(118deg, transparent 0 30%, rgba(232,237,224,0.18) 30.2% 30.7%, transparent 31% 100%),
+        linear-gradient(146deg, transparent 0 54%, rgba(107,175,94,0.16) 54.2% 54.7%, transparent 55% 100%),
+        radial-gradient(ellipse 70% 55% at 50% 25%, rgba(200,164,90,0.14), transparent 62%);
+      background-size: 420px 300px, 520px 360px, 100% 100%;
     }
 
     .error-content {

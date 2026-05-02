@@ -18,10 +18,13 @@
     radial-gradient(ellipse 40% 40% at 20% 30%, rgba(200,164,90,0.15) 0%, transparent 50%);
 }
 .hero-grid {
-  position: absolute; inset: 0; opacity: 0.04;
-  background-image: linear-gradient(var(--mist) 1px, transparent 1px),
-                    linear-gradient(90deg, var(--mist) 1px, transparent 1px);
-  background-size: 48px 48px;
+  position: absolute; inset: 0; opacity: 0.22;
+  background:
+    linear-gradient(118deg, transparent 0 32%, rgba(232,237,224,0.18) 32.2% 32.7%, transparent 33% 100%),
+    linear-gradient(142deg, transparent 0 46%, rgba(107,175,94,0.16) 46.2% 46.7%, transparent 47% 100%),
+    linear-gradient(164deg, transparent 0 60%, rgba(200,164,90,0.12) 60.2% 60.7%, transparent 61% 100%),
+    radial-gradient(ellipse 85% 60% at 75% 28%, rgba(107,175,94,0.24), transparent 62%);
+  background-size: 420px 300px, 520px 360px, 460px 320px, 100% 100%;
 }
 .hero-content {
   position: relative; max-width: 700px;

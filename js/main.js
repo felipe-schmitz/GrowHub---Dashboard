@@ -20,12 +20,48 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 /* ── Marca link ativo na nav conforme página atual ── */
+/* Estado visual do login ficticio */
+const FAKE_AUTH_KEY = 'terrasync_fake_login';
+
+function syncFakeAuthNav() {
+  document.body.classList.toggle('is-authenticated', localStorage.getItem(FAKE_AUTH_KEY) === 'true');
+}
+
+syncFakeAuthNav();
+window.addEventListener('storage', syncFakeAuthNav);
+window.addEventListener('terrasync-auth-change', syncFakeAuthNav);
+
 (function markActiveNav() {
   const current = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a').forEach(a => {
     const href = a.getAttribute('href').split('/').pop();
     if (href === current) a.classList.add('active');
   });
+})();
+
+/* Menu mobile */
+(function initMobileNav() {
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (!toggle || !links) return;
+
+  function closeMenu() {
+    toggle.classList.remove('is-open');
+    links.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('nav-open');
+  }
+
+  toggle.addEventListener('click', () => {
+    const isOpen = toggle.classList.toggle('is-open');
+    links.classList.toggle('is-open', isOpen);
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    document.body.classList.toggle('nav-open', isOpen);
+  });
+
+  links.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+  window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
 })();
 
 /* ============================================

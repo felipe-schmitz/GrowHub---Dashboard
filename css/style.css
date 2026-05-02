@@ -58,7 +58,8 @@ nav {
 }
 .logo-mark svg { width: 18px; height: 18px; fill: var(--white); }
 
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+.nav-links li { display: flex; align-items: center; }
 .nav-links a {
   font-size: 0.9rem; font-weight: 400; color: var(--smoke);
   text-decoration: none; transition: color 0.2s;
@@ -72,6 +73,55 @@ nav {
   font-weight: 500 !important; transition: background 0.2s !important;
 }
 .nav-cta:hover { background: var(--soil) !important; }
+
+.nav-profile-item { display: none !important; }
+.nav-profile {
+  display: flex;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: rgba(61,107,58,0.1);
+  border: 1px solid rgba(61,107,58,0.2);
+  color: var(--leaf) !important;
+  align-items: center; justify-content: center;
+  padding: 0 !important;
+}
+.nav-profile span { display: none; }
+.nav-profile svg {
+  width: 19px; height: 19px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.nav-profile:hover {
+  background: var(--leaf) !important;
+  color: var(--white) !important;
+}
+body.is-authenticated .nav-cta-item { display: none !important; }
+body.is-authenticated .nav-profile-item { display: flex !important; }
+
+.nav-toggle {
+  display: none;
+  width: 42px; height: 42px;
+  border: 1px solid rgba(44,24,16,0.1);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.55);
+  align-items: center; justify-content: center;
+  flex-direction: column; gap: 5px;
+  cursor: pointer;
+}
+.nav-toggle span {
+  width: 19px; height: 2px;
+  border-radius: 99px;
+  background: var(--soil);
+  transition: transform 0.2s, opacity 0.2s;
+}
+.nav-toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+.nav-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+body.nav-open { overflow: hidden; }
 
 /* ── Botões globais ── */
 .btn-primary {
@@ -247,10 +297,12 @@ footer { background: #160E08; padding: 4rem 4rem 2rem; }
   background: radial-gradient(ellipse 55% 60% at 80% 50%, rgba(61,107,58,0.2) 0%, transparent 60%);
 }
 .page-hero-grid {
-  position: absolute; inset: 0; opacity: 0.04;
-  background-image: linear-gradient(var(--mist) 1px, transparent 1px),
-                    linear-gradient(90deg, var(--mist) 1px, transparent 1px);
-  background-size: 48px 48px;
+  position: absolute; inset: 0; opacity: 0.18;
+  background:
+    linear-gradient(120deg, transparent 0 28%, rgba(232,237,224,0.16) 28.2% 28.7%, transparent 29% 100%),
+    linear-gradient(150deg, transparent 0 42%, rgba(200,164,90,0.12) 42.2% 42.7%, transparent 43% 100%),
+    radial-gradient(ellipse 80% 55% at 82% 20%, rgba(107,175,94,0.2), transparent 58%);
+  background-size: 360px 260px, 420px 300px, 100% 100%;
 }
 .page-hero-content { position: relative; }
 .page-hero-breadcrumb { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: rgba(107,175,94,0.7); letter-spacing: 0.1em; margin-bottom: 0.75rem; }
@@ -264,7 +316,52 @@ footer { background: #160E08; padding: 4rem 4rem 2rem; }
 /* ── Responsive ── */
 @media (max-width: 900px) {
   nav { padding: 1rem 1.5rem; }
-  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-links {
+    position: fixed;
+    top: 70px; left: 1rem; right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.75rem;
+    background: rgba(253,254,249,0.98);
+    border: 1px solid rgba(44,24,16,0.1);
+    border-radius: 12px;
+    box-shadow: 0 24px 60px rgba(44,24,16,0.16);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .nav-links.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .nav-links li { width: 100%; display: flex; }
+  .nav-links a {
+    display: flex;
+    width: 100%;
+    padding: 0.9rem 0.85rem;
+    border-radius: 8px;
+    color: var(--soil);
+  }
+  .nav-links a:hover,
+  .nav-links a.active { background: rgba(61,107,58,0.08); }
+  .nav-links .nav-cta {
+    justify-content: center;
+    margin-top: 0.35rem;
+    padding: 0.85rem;
+  }
+  .nav-profile {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    padding: 0.85rem !important;
+    gap: 8px;
+    justify-content: center;
+  }
+  .nav-profile span { display: inline; }
   section { padding: 4rem 1.5rem; }
   .page-hero { padding: 7rem 1.5rem 2.5rem; }
   .footer-top { grid-template-columns: 1fr 1fr; }

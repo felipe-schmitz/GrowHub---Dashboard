@@ -30,6 +30,8 @@ if (toggleSenha && loginSenha) {
 const emailInput = document.getElementById('login-email');
 const emailMsg   = document.getElementById('email-msg');
 const EMAIL_RE   = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const senhaMsg   = document.getElementById('senha-msg');
+const PASSWORD_RE = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
 
 function showEmailStatus(valid, msg) {
   emailMsg.style.display      = 'block';
@@ -77,6 +79,52 @@ if (emailInput) {
 }
 
 /* ── Login fictício ── */
+function getPasswordErrors(value) {
+  const errors = [];
+  if (value.length < 8) errors.push('8 caracteres');
+  if (!/[A-Z]/.test(value)) errors.push('letra maiuscula');
+  if (!/\d/.test(value)) errors.push('numero');
+  if (!/[^A-Za-z0-9]/.test(value)) errors.push('simbolo');
+  return errors;
+}
+
+function showPasswordStatus(valid, msg) {
+  if (!senhaMsg || !loginSenha) return;
+  senhaMsg.style.display = 'block';
+  senhaMsg.textContent = msg;
+  senhaMsg.style.color = valid ? '#6BAF5E' : '#E06060';
+  senhaMsg.style.background = valid ? 'rgba(107,175,94,0.1)' : 'rgba(224,96,96,0.1)';
+  loginSenha.style.borderColor = valid ? 'var(--sprout)' : '#E06060';
+}
+
+function clearPasswordStatus() {
+  if (!senhaMsg || !loginSenha) return;
+  senhaMsg.style.display = 'none';
+  loginSenha.style.borderColor = '';
+}
+
+function validatePassword(showEmpty) {
+  if (!loginSenha) return true;
+  const value = loginSenha.value;
+  if (!value) {
+    if (showEmpty) showPasswordStatus(false, 'Digite uma senha com 8 caracteres, maiuscula, numero e simbolo');
+    else clearPasswordStatus();
+    return false;
+  }
+  const errors = getPasswordErrors(value);
+  if (errors.length) {
+    showPasswordStatus(false, `Inclua: ${errors.join(', ')}`);
+    return false;
+  }
+  showPasswordStatus(true, 'Senha atende aos requisitos');
+  return true;
+}
+
+if (loginSenha) {
+  loginSenha.addEventListener('input', () => validatePassword(false));
+  loginSenha.addEventListener('blur', () => validatePassword(false));
+}
+
 const loginBtn = document.getElementById('login-btn');
 if (loginBtn) {
   loginBtn.addEventListener('click', () => {
@@ -87,10 +135,17 @@ if (loginBtn) {
       return;
     }
     loginBtn.textContent  = 'Autenticando…';
+    if (!validatePassword(true)) {
+      loginBtn.textContent = 'Entrar no GrowHub ->';
+      loginSenha.focus();
+      return;
+    }
     loginBtn.style.background = 'var(--clay)';
     loginBtn.disabled = true;
     setTimeout(() => {
-      loginBtn.textContent  = '✓ Login fictício — fins didáticos';
+      localStorage.setItem('terrasync_fake_login', 'true');
+      window.dispatchEvent(new Event('terrasync-auth-change'));
+      loginBtn.textContent = 'Login realizado';
       loginBtn.style.background = 'var(--leaf)';
     }, 1600);
   });

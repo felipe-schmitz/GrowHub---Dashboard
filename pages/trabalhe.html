@@ -10,17 +10,18 @@
   <style>
     /* cultura */
     .cultura { background: var(--fog); }
-    .cultura-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1rem; margin-top: 3rem; }
-    .cultura-card { background: var(--white); border: 1px solid rgba(44,24,16,0.07); border-radius: 14px; padding: 1.5rem; }
-    .cultura-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+    .cultura-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 0.8rem; margin-top: 2.5rem; }
+    .cultura-card { background: var(--white); border: 1px solid rgba(44,24,16,0.07); border-radius: 8px; padding: 1.25rem; }
+    .cultura-icon { width: 34px; height: 34px; border-radius: 8px; background: rgba(61,107,58,0.08); color: var(--leaf); display: flex; align-items: center; justify-content: center; margin-bottom: 0.75rem; }
+    .cultura-icon svg, .ben-icon svg, .vaga-dept svg, .tag-local svg, .vaga-arrow svg { width: 17px; height: 17px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
     .cultura-name { font-weight: 500; color: var(--soil); font-size: 0.95rem; margin-bottom: 0.4rem; }
     .cultura-desc { font-size: 0.83rem; color: var(--smoke); line-height: 1.6; }
 
     /* benefícios */
     .beneficios { background: var(--white); }
-    .ben-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 1rem; margin-top: 3rem; }
+    .ben-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.1rem 1.4rem; margin-top: 2.5rem; }
     .ben-item { display: flex; gap: 12px; align-items: flex-start; }
-    .ben-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(61,107,58,0.1); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .ben-icon { width: 34px; height: 34px; border-radius: 8px; background: rgba(61,107,58,0.08); color: var(--leaf); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .ben-label { font-size: 0.88rem; font-weight: 500; color: var(--soil); margin-bottom: 2px; }
     .ben-desc  { font-size: 0.78rem; color: var(--smoke); line-height: 1.5; }
 
@@ -33,21 +34,22 @@
     .vagas-grid { display: flex; flex-direction: column; gap: 1rem; }
     .vaga-card {
       background: var(--white); border: 1px solid rgba(44,24,16,0.07);
-      border-radius: 14px; padding: 1.5rem 1.75rem;
-      display: flex; align-items: center; gap: 1.5rem;
+      border-radius: 8px; padding: 1.2rem 1.35rem;
+      display: flex; align-items: center; gap: 1.1rem;
       transition: box-shadow 0.2s, transform 0.2s;
       cursor: pointer;
     }
     .vaga-card:hover { box-shadow: 0 8px 24px rgba(44,24,16,0.08); transform: translateY(-2px); }
-    .vaga-dept { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .vaga-dept { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--leaf); }
     .vaga-info { flex: 1; }
     .vaga-title { font-size: 1.05rem; font-weight: 600; color: var(--soil); margin-bottom: 4px; }
     .vaga-tags  { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .vaga-tag   { font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; font-family: 'DM Mono', monospace; }
+    .vaga-tag   { font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; font-family: 'DM Mono', monospace; display: inline-flex; align-items: center; gap: 4px; }
+    .vaga-tag svg { width: 12px; height: 12px; stroke-width: 2; }
     .tag-local  { background: rgba(61,107,58,0.08); color: var(--leaf); }
     .tag-area   { background: rgba(44,24,16,0.06); color: var(--smoke); }
     .tag-tipo   { background: rgba(200,164,90,0.12); color: #7A5F18; }
-    .vaga-arrow { color: var(--smoke); font-size: 1.1rem; transition: transform 0.2s; }
+    .vaga-arrow { color: var(--smoke); display: flex; transition: transform 0.2s; }
     .vaga-card:hover .vaga-arrow { transform: translateX(4px); color: var(--leaf); }
     .vagas-empty { text-align: center; padding: 3rem; color: var(--smoke); font-size: 0.9rem; display: none; }
 
@@ -160,6 +162,27 @@
 <body>
 
 <!-- Nav injetado por components.js -->
+<svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden;">
+  <symbol id="icon-seed" viewBox="0 0 24 24"><path d="M12 21c0-6.5 3.5-10 9-12-5.8-.7-11 2.4-11 10"/><path d="M12 21c0-5.5-2.7-8.7-8-10 0 5.6 3.2 9 8 10z"/></symbol>
+  <symbol id="icon-home" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10.5V20h13v-9.5"/><path d="M9.5 20v-5h5v5"/></symbol>
+  <symbol id="icon-book" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 1 4 17.5z"/><path d="M4 17.5A2.5 2.5 0 0 1 6.5 15H20"/><path d="M8 7h8"/></symbol>
+  <symbol id="icon-handshake" viewBox="0 0 24 24"><path d="m8 12 2.5-2.5a2 2 0 0 1 2.8 0L15 11"/><path d="m14 15 2 2a2 2 0 0 0 2.8 0L21 14.8"/><path d="M3 14.8 5.2 17a2 2 0 0 0 2.8 0l1-1"/><path d="M7 9H4v6h3"/><path d="M17 9h3v6h-3"/></symbol>
+  <symbol id="icon-balance" viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M5 7h14"/><path d="m6 7-3 6h6z"/><path d="m18 7-3 6h6z"/></symbol>
+  <symbol id="icon-dollar" viewBox="0 0 24 24"><path d="M12 2v20"/><path d="M17 6.5c-1.2-1-2.8-1.5-4.4-1.3-2 .2-3.6 1.3-3.6 3 0 4.5 8 2.2 8 7 0 1.9-1.8 3.2-4.1 3.5-1.9.2-3.7-.3-5.1-1.4"/></symbol>
+  <symbol id="icon-laptop" viewBox="0 0 24 24"><path d="M5 5h14v10H5z"/><path d="M3 19h18l-2-4H5z"/></symbol>
+  <symbol id="icon-heart" viewBox="0 0 24 24"><path d="M20.5 8.8c0 5.5-8.5 10.2-8.5 10.2S3.5 14.3 3.5 8.8A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 8.5 2.8z"/></symbol>
+  <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-5"/><path d="M12 16V8"/><path d="M16 16v-3"/></symbol>
+  <symbol id="icon-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.4 3.8 5.4 3.8 9S14.5 18.6 12 21"/><path d="M12 3c-2.5 2.4-3.8 5.4-3.8 9S9.5 18.6 12 21"/></symbol>
+  <symbol id="icon-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3"/><path d="M12 19v3"/><path d="m4.9 4.9 2.1 2.1"/><path d="m17 17 2.1 2.1"/><path d="M2 12h3"/><path d="M19 12h3"/><path d="m4.9 19.1 2.1-2.1"/><path d="m17 7 2.1-2.1"/></symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18h2"/></symbol>
+  <symbol id="icon-satellite" viewBox="0 0 24 24"><path d="M9 9 4 4"/><path d="m15 15 5 5"/><rect x="8" y="7" width="8" height="10" rx="1" transform="rotate(-45 12 12)"/><path d="M4 14a6 6 0 0 1 6 6"/><path d="M4 18a2 2 0 0 1 2 2"/></symbol>
+  <symbol id="icon-brain" viewBox="0 0 24 24"><path d="M9 4a4 4 0 0 0-4 4v1a4 4 0 0 0 0 8 4 4 0 0 0 4 3"/><path d="M15 4a4 4 0 0 1 4 4v1a4 4 0 0 1 0 8 4 4 0 0 1-4 3"/><path d="M9 4v16"/><path d="M15 4v16"/><path d="M9 9H6"/><path d="M15 13h3"/></symbol>
+  <symbol id="icon-microscope" viewBox="0 0 24 24"><path d="m10 4 4 4"/><path d="M8 6l6 6"/><path d="M13 11 9 15"/><path d="M6 20h12"/><path d="M12 15a4 4 0 0 0 4 4"/><path d="M8 4l2-2 6 6-2 2z"/></symbol>
+  <symbol id="icon-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0 0 18h1.5a2.5 2.5 0 0 0 0-5H12a2 2 0 0 1 0-4h2a7 7 0 0 0-2-9z"/><circle cx="7.5" cy="10" r=".8"/><circle cx="10" cy="7" r=".8"/><circle cx="14" cy="7.5" r=".8"/></symbol>
+  <symbol id="icon-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></symbol>
+  <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-12a7 7 0 0 0-14 0c0 6.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.3"/></symbol>
+  <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+</svg>
 
 <!-- HERO -->
 <div class="page-hero">
@@ -178,12 +201,12 @@
   <h2 class="section-title">Nossa cultura</h2>
   <p class="section-sub">Somos um time que gosta de ir ao campo, de entender o problema real antes de escrever uma linha de código, e de construir soluções que durem.</p>
   <div class="cultura-grid">
-    <div class="cultura-card"><div class="cultura-icon">🌾</div><div class="cultura-name">Missão acima de tudo</div><div class="cultura-desc">Cada decisão passa pelo filtro: "isso ajuda o produtor?". Métricas de vaidade não nos interessam.</div></div>
-    <div class="cultura-card"><div class="cultura-icon">🏠</div><div class="cultura-name">Remote-first</div><div class="cultura-desc">Trabalhamos de qualquer lugar do Brasil. Nos encontramos presencialmente em Vilhena duas vezes por ano para sprints de produto.</div></div>
-    <div class="cultura-card"><div class="cultura-icon">📚</div><div class="cultura-name">Aprendizado constante</div><div class="cultura-desc">Budget anual de R$ 3.000 por pessoa para cursos, livros e eventos. Sextas-feiras têm 2h reservadas para estudo.</div></div>
-    <div class="cultura-card"><div class="cultura-icon">🤝</div><div class="cultura-name">Transparência radical</div><div class="cultura-desc">Todos os colaboradores têm acesso às métricas financeiras da empresa, metas de produto e resultados de usuários.</div></div>
-    <div class="cultura-card"><div class="cultura-icon">⚖️</div><div class="cultura-name">Equilíbrio de verdade</div><div class="cultura-desc">Sem culturas de horas extras. Respeitamos horários, feriados e férias. Produto bom vem de time descansado.</div></div>
-    <div class="cultura-card"><div class="cultura-icon">🌱</div><div class="cultura-name">Diversidade e inclusão</div><div class="cultura-desc">Priorizamos diversidade regional e de background. Valorizamos quem vem do campo e quem veio das capitais.</div></div>
+    <div class="cultura-card"><div class="cultura-icon"><svg><use href="#icon-seed"/></svg></div><div class="cultura-name">Missão acima de tudo</div><div class="cultura-desc">Cada decisão passa pelo filtro: "isso ajuda o produtor?". Métricas de vaidade não nos interessam.</div></div>
+    <div class="cultura-card"><div class="cultura-icon"><svg><use href="#icon-home"/></svg></div><div class="cultura-name">Remote-first</div><div class="cultura-desc">Trabalhamos de qualquer lugar do Brasil, com encontros presenciais em Vilhena duas vezes por ano.</div></div>
+    <div class="cultura-card"><div class="cultura-icon"><svg><use href="#icon-book"/></svg></div><div class="cultura-name">Aprendizado constante</div><div class="cultura-desc">Budget anual para cursos, livros e eventos, com tempo reservado para estudo técnico.</div></div>
+    <div class="cultura-card"><div class="cultura-icon"><svg><use href="#icon-handshake"/></svg></div><div class="cultura-name">Transparência radical</div><div class="cultura-desc">Metas, métricas e resultados ficam visíveis para todo o time.</div></div>
+    <div class="cultura-card"><div class="cultura-icon"><svg><use href="#icon-balance"/></svg></div><div class="cultura-name">Equilíbrio de verdade</div><div class="cultura-desc">Sem cultura de hora extra. Produto bom vem de time descansado.</div></div>
+    <div class="cultura-card"><div class="cultura-icon"><svg><use href="#icon-seed"/></svg></div><div class="cultura-name">Diversidade e inclusão</div><div class="cultura-desc">Valorizamos trajetórias diferentes, do campo às capitais.</div></div>
   </div>
 </section>
 
@@ -192,14 +215,12 @@
   <span class="section-label">Pacote de benefícios</span>
   <h2 class="section-title">O que oferecemos</h2>
   <div class="ben-grid">
-    <div class="ben-item"><div class="ben-icon">💰</div><div><div class="ben-label">Salários competitivos</div><div class="ben-desc">Equiparados ao mercado nacional de tecnologia, revisados anualmente.</div></div></div>
-    <div class="ben-item"><div class="ben-icon">💻</div><div><div class="ben-label">Equipamento top</div><div class="ben-desc">MacBook Pro M3 ou notebook equivalente de sua escolha, monitor e periféricos.</div></div></div>
-    <div class="ben-item"><div class="ben-icon">🏥</div><div><div class="ben-label">Plano de saúde</div><div class="ben-desc">Bradesco Saúde Nacional, cobertura total para o colaborador e dependentes.</div></div></div>
-    <div class="ben-item"><div class="ben-icon">🦷</div><div><div class="ben-label">Plano odontológico</div><div class="ben-desc">Bradesco Dental, incluso para todos os colaboradores.</div></div></div>
-    <div class="ben-item"><div class="ben-icon">📈</div><div><div class="ben-label">Participação nos resultados</div><div class="ben-desc">PLR semestral atrelado a metas de produto e satisfação de usuários.</div></div></div>
-    <div class="ben-item"><div class="ben-icon">🌍</div><div><div class="ben-label">Home office total</div><div class="ben-desc">Auxílio mensal de R$ 200 para internet e R$ 150 para ergonomia.</div></div></div>
-    <div class="ben-item"><div class="ben-icon">📚</div><div><div class="ben-label">Edu budget anual</div><div class="ben-desc">R$ 3.000/ano para cursos, livros, certificações e eventos técnicos.</div></div></div>
-    <div class="ben-item"><div class="ben-icon">🌱</div><div><div class="ben-label">Day off no aniversário</div><div class="ben-desc">Folga no dia do seu aniversário, sem descontar das férias.</div></div></div>
+    <div class="ben-item"><div class="ben-icon"><svg><use href="#icon-dollar"/></svg></div><div><div class="ben-label">Salários competitivos</div><div class="ben-desc">Faixas alinhadas ao mercado nacional de tecnologia.</div></div></div>
+    <div class="ben-item"><div class="ben-icon"><svg><use href="#icon-laptop"/></svg></div><div><div class="ben-label">Equipamento de trabalho</div><div class="ben-desc">Notebook, monitor e periféricos para trabalhar bem.</div></div></div>
+    <div class="ben-item"><div class="ben-icon"><svg><use href="#icon-heart"/></svg></div><div><div class="ben-label">Saúde e odontologia</div><div class="ben-desc">Cobertura para colaborador e dependentes.</div></div></div>
+    <div class="ben-item"><div class="ben-icon"><svg><use href="#icon-chart"/></svg></div><div><div class="ben-label">Participação nos resultados</div><div class="ben-desc">PLR semestral atrelada a metas de produto.</div></div></div>
+    <div class="ben-item"><div class="ben-icon"><svg><use href="#icon-home"/></svg></div><div><div class="ben-label">Home office total</div><div class="ben-desc">Auxílio mensal para internet e ergonomia.</div></div></div>
+    <div class="ben-item"><div class="ben-icon"><svg><use href="#icon-book"/></svg></div><div><div class="ben-label">Edu budget anual</div><div class="ben-desc">Verba para cursos, livros e eventos técnicos.</div></div></div>
   </div>
 </section>
 
@@ -220,133 +241,133 @@
   <div class="vagas-grid" id="vagas-list">
 
     <div class="vaga-card" data-area="tech">
-      <div class="vaga-dept" style="background:rgba(91,155,213,0.1);">⚙️</div>
+      <div class="vaga-dept" style="background:rgba(91,155,213,0.1);"><svg><use href="#icon-gear"/></svg></div>
       <div class="vaga-info">
         <div class="vaga-title">Engenheiro(a) Back-end Senior — AgriFlow</div>
         <div class="vaga-tags">
-          <span class="vaga-tag tag-local">🌍 Remoto</span>
+          <span class="vaga-tag tag-local"><svg><use href="#icon-globe"/></svg> Remoto</span>
           <span class="vaga-tag tag-area">Tecnologia</span>
           <span class="vaga-tag tag-tipo">CLT</span>
         </div>
       </div>
-      <div class="vaga-arrow">→</div>
+      <div class="vaga-arrow"><svg><use href="#icon-arrow"/></svg></div>
     </div>
 
     <div class="vaga-card" data-area="tech">
-      <div class="vaga-dept" style="background:rgba(91,155,213,0.1);">📱</div>
+      <div class="vaga-dept" style="background:rgba(91,155,213,0.1);"><svg><use href="#icon-phone"/></svg></div>
       <div class="vaga-info">
         <div class="vaga-title">Desenvolvedor(a) Mobile — iOS & Android</div>
         <div class="vaga-tags">
-          <span class="vaga-tag tag-local">🌍 Remoto</span>
+          <span class="vaga-tag tag-local"><svg><use href="#icon-globe"/></svg> Remoto</span>
           <span class="vaga-tag tag-area">Tecnologia</span>
           <span class="vaga-tag tag-tipo">CLT</span>
         </div>
       </div>
-      <div class="vaga-arrow">→</div>
+      <div class="vaga-arrow"><svg><use href="#icon-arrow"/></svg></div>
     </div>
 
     <div class="vaga-card" data-area="tech">
-      <div class="vaga-dept" style="background:rgba(91,155,213,0.1);">🛰️</div>
+      <div class="vaga-dept" style="background:rgba(91,155,213,0.1);"><svg><use href="#icon-satellite"/></svg></div>
       <div class="vaga-info">
         <div class="vaga-title">Engenheiro(a) de Integração — APIs e Sensores IoT</div>
         <div class="vaga-tags">
-          <span class="vaga-tag tag-local">🌍 Remoto</span>
+          <span class="vaga-tag tag-local"><svg><use href="#icon-globe"/></svg> Remoto</span>
           <span class="vaga-tag tag-area">Tecnologia</span>
           <span class="vaga-tag tag-tipo">PJ</span>
         </div>
       </div>
-      <div class="vaga-arrow">→</div>
+      <div class="vaga-arrow"><svg><use href="#icon-arrow"/></svg></div>
     </div>
 
     <div class="vaga-card" data-area="dados">
-      <div class="vaga-dept" style="background:rgba(107,175,94,0.1);">🧠</div>
+      <div class="vaga-dept" style="background:rgba(107,175,94,0.1);"><svg><use href="#icon-brain"/></svg></div>
       <div class="vaga-info">
         <div class="vaga-title">Cientista de Dados — CuidoIA (Foco em Solos)</div>
         <div class="vaga-tags">
-          <span class="vaga-tag tag-local">🌍 Remoto</span>
+          <span class="vaga-tag tag-local"><svg><use href="#icon-globe"/></svg> Remoto</span>
           <span class="vaga-tag tag-area">Dados & IA</span>
           <span class="vaga-tag tag-tipo">CLT</span>
         </div>
       </div>
-      <div class="vaga-arrow">→</div>
+      <div class="vaga-arrow"><svg><use href="#icon-arrow"/></svg></div>
     </div>
 
     <div class="vaga-card" data-area="dados">
-      <div class="vaga-dept" style="background:rgba(107,175,94,0.1);">📊</div>
+      <div class="vaga-dept" style="background:rgba(107,175,94,0.1);"><svg><use href="#icon-chart"/></svg></div>
       <div class="vaga-info">
         <div class="vaga-title">Analista de BI — Dashboards de Produtividade Rural</div>
         <div class="vaga-tags">
-          <span class="vaga-tag tag-local">🌍 Remoto</span>
+          <span class="vaga-tag tag-local"><svg><use href="#icon-globe"/></svg> Remoto</span>
           <span class="vaga-tag tag-area">Dados & IA</span>
           <span class="vaga-tag tag-tipo">CLT</span>
         </div>
       </div>
-      <div class="vaga-arrow">→</div>
+      <div class="vaga-arrow"><svg><use href="#icon-arrow"/></svg></div>
     </div>
 
     <div class="vaga-card" data-area="agro">
-      <div class="vaga-dept" style="background:rgba(61,107,58,0.1);">🌱</div>
+      <div class="vaga-dept" style="background:rgba(61,107,58,0.1);"><svg><use href="#icon-seed"/></svg></div>
       <div class="vaga-info">
         <div class="vaga-title">Engenheiro(a) Agrônomo(a) — Customer Success</div>
         <div class="vaga-tags">
-          <span class="vaga-tag tag-local">📍 MT / MS / RO</span>
+          <span class="vaga-tag tag-local"><svg><use href="#icon-pin"/></svg> MT / MS / RO</span>
           <span class="vaga-tag tag-area">Agronomia</span>
           <span class="vaga-tag tag-tipo">CLT</span>
         </div>
       </div>
-      <div class="vaga-arrow">→</div>
+      <div class="vaga-arrow"><svg><use href="#icon-arrow"/></svg></div>
     </div>
 
     <div class="vaga-card" data-area="agro">
-      <div class="vaga-dept" style="background:rgba(61,107,58,0.1);">🔬</div>
+      <div class="vaga-dept" style="background:rgba(61,107,58,0.1);"><svg><use href="#icon-microscope"/></svg></div>
       <div class="vaga-info">
         <div class="vaga-title">Especialista em Ciência do Solo — Conteúdo Técnico</div>
         <div class="vaga-tags">
-          <span class="vaga-tag tag-local">🌍 Remoto</span>
+          <span class="vaga-tag tag-local"><svg><use href="#icon-globe"/></svg> Remoto</span>
           <span class="vaga-tag tag-area">Agronomia</span>
           <span class="vaga-tag tag-tipo">PJ</span>
         </div>
       </div>
-      <div class="vaga-arrow">→</div>
+      <div class="vaga-arrow"><svg><use href="#icon-arrow"/></svg></div>
     </div>
 
     <div class="vaga-card" data-area="design">
-      <div class="vaga-dept" style="background:rgba(200,164,90,0.1);">🎨</div>
+      <div class="vaga-dept" style="background:rgba(200,164,90,0.1);"><svg><use href="#icon-palette"/></svg></div>
       <div class="vaga-info">
         <div class="vaga-title">Product Designer — GrowHub (UX/UI)</div>
         <div class="vaga-tags">
-          <span class="vaga-tag tag-local">🌍 Remoto</span>
+          <span class="vaga-tag tag-local"><svg><use href="#icon-globe"/></svg> Remoto</span>
           <span class="vaga-tag tag-area">Design</span>
           <span class="vaga-tag tag-tipo">CLT</span>
         </div>
       </div>
-      <div class="vaga-arrow">→</div>
+      <div class="vaga-arrow"><svg><use href="#icon-arrow"/></svg></div>
     </div>
 
     <div class="vaga-card" data-area="negocio">
-      <div class="vaga-dept" style="background:rgba(139,94,60,0.1);">💼</div>
+      <div class="vaga-dept" style="background:rgba(139,94,60,0.1);"><svg><use href="#icon-briefcase"/></svg></div>
       <div class="vaga-info">
         <div class="vaga-title">Account Executive — Plano Safra (Grandes Produtores)</div>
         <div class="vaga-tags">
-          <span class="vaga-tag tag-local">🌍 Remoto</span>
+          <span class="vaga-tag tag-local"><svg><use href="#icon-globe"/></svg> Remoto</span>
           <span class="vaga-tag tag-area">Negócios</span>
           <span class="vaga-tag tag-tipo">CLT + comissão</span>
         </div>
       </div>
-      <div class="vaga-arrow">→</div>
+      <div class="vaga-arrow"><svg><use href="#icon-arrow"/></svg></div>
     </div>
 
     <div class="vaga-card" data-area="negocio">
-      <div class="vaga-dept" style="background:rgba(139,94,60,0.1);">🤝</div>
+      <div class="vaga-dept" style="background:rgba(139,94,60,0.1);"><svg><use href="#icon-handshake"/></svg></div>
       <div class="vaga-info">
         <div class="vaga-title">Gerente de Parcerias — Cooperativas e Revendas</div>
         <div class="vaga-tags">
-          <span class="vaga-tag tag-local">📍 Centro-Oeste</span>
+          <span class="vaga-tag tag-local"><svg><use href="#icon-pin"/></svg> Centro-Oeste</span>
           <span class="vaga-tag tag-area">Negócios</span>
           <span class="vaga-tag tag-tipo">CLT</span>
         </div>
       </div>
-      <div class="vaga-arrow">→</div>
+      <div class="vaga-arrow"><svg><use href="#icon-arrow"/></svg></div>
     </div>
 
   </div>
@@ -485,19 +506,19 @@
       const v = espEmail.value.trim();
       if (!v) { espEmailMsg.style.display='none'; espEmail.style.borderColor=''; return; }
       debounce = setTimeout(() => {
-        EMAIL_RE.test(v) ? setEmailMsg(true,'✓ Formato válido') : setEmailMsg(false,'✗ formato: nome@dominio.com');
+        EMAIL_RE.test(v) ? setEmailMsg(true,'Formato válido') : setEmailMsg(false,'Use o formato nome@dominio.com');
       }, 500);
     });
     espEmail.addEventListener('blur', () => {
       const v = espEmail.value.trim();
-      if (v) EMAIL_RE.test(v) ? setEmailMsg(true,'✓ Formato válido') : setEmailMsg(false,'✗ formato: nome@dominio.com');
+      if (v) EMAIL_RE.test(v) ? setEmailMsg(true,'Formato válido') : setEmailMsg(false,'Use o formato nome@dominio.com');
     });
   }
 
   document.getElementById('esp-btn').addEventListener('click', () => {
     const btn = document.getElementById('esp-btn');
     if (espEmail && espEmail.value.trim() && !EMAIL_RE.test(espEmail.value.trim())) {
-      setEmailMsg(false, '✗ Corrija o e-mail antes de enviar');
+      setEmailMsg(false, 'Corrija o e-mail antes de enviar');
       espEmail.focus(); return;
     }
     btn.innerHTML = '<svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:white;animation:spin 1s linear infinite"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg> Enviando…';
